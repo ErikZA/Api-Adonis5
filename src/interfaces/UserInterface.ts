@@ -1,10 +1,9 @@
-import { Schema, Document } from 'mongoose'
-
-export default interface UserInterface extends Document {
+export default interface UserInterface {
+    id?:number
     firstName: string
     lastName: string
     email?: string
-    fullName(): string
+    fullName (): string
 }
 
-new Schema().methods.fullName = (): string => { return this.firstName + ' ' + this.lastName }
+this.fullName = (): string => { return `${this.firstName} ${this.lastName}` }
