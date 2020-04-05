@@ -6,7 +6,7 @@
  */
 
 import Env from '@ioc:Adonis/Core/Env'
-import Application from '@ioc:Adonis/Core/Application'
+// import Application from '@ioc:Adonis/Core/Application'
 import { OrmConfigContract } from '@ioc:Adonis/Lucid/Orm'
 import { DatabaseConfigContract } from '@ioc:Adonis/Lucid/Database'
 
@@ -35,15 +35,15 @@ const databaseConfig: DatabaseConfigContract & { orm: Partial<OrmConfigContract>
     | npm i sqlite3
     |
     */
-    sqlite: {
-      client: 'sqlite',
-      connection: {
-        filename: Application.tmpPath('db.sqlite3'),
-      },
-      useNullAsDefault: true,
-      healthCheck: false,
-      debug: Env.get('LOG_LEVEL') === 'trace',
-    },
+    // sqlite: {
+    //   client: 'sqlite',
+    //   connection: {
+    //     filename: Application.tmpPath('db.sqlite3'),
+    //   },
+    //   useNullAsDefault: true,
+    //   healthCheck: false,
+    //   debug: Env.get('LOG_LEVEL') === 'trace',
+    // },
 
     /*
     |--------------------------------------------------------------------------
@@ -56,18 +56,18 @@ const databaseConfig: DatabaseConfigContract & { orm: Partial<OrmConfigContract>
     | npm i mysql
     |
     */
-    mysql: {
-      client: 'mysql',
-      connection: {
-        host: Env.get('DB_HOST', '127.0.0.1') as string,
-        port: Number(Env.get('DB_PORT', 3306)),
-        user: Env.get('DB_USER', 'lucid') as string,
-        password: Env.get('DB_PASSWORD', 'lucid') as string,
-        database: Env.get('DB_NAME', 'lucid') as string,
-      },
-      healthCheck: false,
-      debug: Env.get('LOG_LEVEL') === 'trace',
-    },
+    // mysql: {
+    //   client: 'mysql',
+    //   connection: {
+    //     host: Env.get('DB_HOST', '127.0.0.1') as string,
+    //     port: Number(Env.get('DB_PORT', 3306)),
+    //     user: Env.get('DB_USER', 'lucid') as string,
+    //     password: Env.get('DB_PASSWORD', 'lucid') as string,
+    //     database: Env.get('DB_NAME', 'lucid') as string,
+    //   },
+    //   healthCheck: false,
+    //   debug: Env.get('LOG_LEVEL') === 'trace',
+    // },
 
     /*
     |--------------------------------------------------------------------------
