@@ -20,7 +20,7 @@ const corsConfig: CorsConfigContract = {
   | you can define a function to enable/disable it on per request basis as well.
   |
   */
-  enabled: false,
+  enabled: true,
 
   // enabled: (request) => request.url().startsWith('/api')
 
@@ -116,7 +116,7 @@ const corsConfig: CorsConfigContract = {
   | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
   |
   */
-  credentials: true,
+  credentials: false,
 
   /*
   |--------------------------------------------------------------------------

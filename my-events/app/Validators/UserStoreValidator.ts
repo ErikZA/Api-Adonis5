@@ -1,6 +1,5 @@
 import { schema, validator } from '@ioc:Adonis/Core/Validator'
 
-
 class UserStoreValidator {
   /**
    * Using a pre-compiled schema you can validate the "shape", "type",
@@ -23,7 +22,7 @@ class UserStoreValidator {
    *    ```
    */
   public schema = validator.compile(schema.create(
-      {})
+    {})
   )
 
   /**
