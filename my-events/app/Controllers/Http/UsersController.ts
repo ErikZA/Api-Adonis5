@@ -9,7 +9,13 @@ export default class UsersController {
   }
 
   public async store ({ request }: HttpContextContract) {
-    const data = request.only(['name', 'lastName', 'email', 'password'])
+    const data = request.only([
+      'name',
+      'lastName',
+      'email',
+      'password',
+      'rememberMeToken',
+    ])
     console.log(data)
     const user = await User.create(data)
     return user
@@ -22,7 +28,13 @@ export default class UsersController {
 
   public async update ({ params, request }: HttpContextContract) {
     const user = await User.findOrFail(params.id)
-    const data = request.only(['name', 'lastName', 'email', 'password'])
+    const data = request.only([
+      'name',
+      'lastName',
+      'email',
+      'password',
+      'rememberMeToken',
+    ])
     user.merge(data)
     await user.save()
     return user

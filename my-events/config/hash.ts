@@ -1,22 +1,22 @@
 /**
- * Config source: https://git.io/Jee3I
+ * Config source: https://git.io/JfefW
  *
  * Feel free to let us know via PR, if you find something broken in this config
  * file.
  */
 
-import { HashConfigContract } from '@ioc:Adonis/Core/Hash'
+import { HashConfig } from '@ioc:Adonis/Core/Hash'
 
 /*
 |--------------------------------------------------------------------------
 | Hash Config
 |--------------------------------------------------------------------------
 |
-| The `HashConfigContract` relies on the `HashList` interface which is
+| The `HashConfig` relies on the `HashList` interface which is
 | defined inside `contracts` directory.
 |
 */
-const hashConfig: HashConfigContract = {
+const hashConfig: HashConfig = {
   /*
   |--------------------------------------------------------------------------
   | Default hasher

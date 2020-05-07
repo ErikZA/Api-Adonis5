@@ -1,13 +1,13 @@
 /**
- * Config source: https://git.io/JvZlL
+ * Config source: https://git.io/JfefC
  *
  * Feel free to let us know via PR, if you find something broken in this config
  * file.
  */
 
-import { CorsConfigContract } from '@ioc:Adonis/Core/Cors'
+import { CorsConfig } from '@ioc:Adonis/Core/Cors'
 
-const corsConfig: CorsConfigContract = {
+const corsConfig: CorsConfig = {
   /*
   |--------------------------------------------------------------------------
   | Enabled
@@ -116,7 +116,7 @@ const corsConfig: CorsConfigContract = {
   | https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
   |
   */
-  credentials: false,
+  credentials: true,
 
   /*
   |--------------------------------------------------------------------------

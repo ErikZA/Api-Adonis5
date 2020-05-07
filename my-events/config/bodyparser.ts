@@ -1,13 +1,13 @@
 /**
- * Config source: https://git.io/fjS7M
+ * Config source: https://git.io/Jfefn
  *
  * Feel free to let us know via PR, if you find something broken in this config
  * file.
  */
 
-import { BodyParserConfigContract } from '@ioc:Adonis/Core/BodyParser'
+import { BodyParserConfig } from '@ioc:Adonis/Core/BodyParser'
 
-const bodyParserConfig: BodyParserConfigContract = {
+const bodyParserConfig: BodyParserConfig = {
   /*
   |--------------------------------------------------------------------------
   | White listed methods
@@ -65,7 +65,7 @@ const bodyParserConfig: BodyParserConfigContract = {
   |
   | Raw body just reads the request body stream as a plain text, which you
   | can process by hand. This must be used when request body type is not
-  | supoorted by bodyparser.
+  | supported by the body parser.
   |
   */
   raw: {
@@ -142,7 +142,7 @@ const bodyParserConfig: BodyParserConfigContract = {
     | Encoding
     |--------------------------------------------------------------------------
     |
-    | Request body enconding
+    | Request body encoding
     |
     */
     encoding: 'utf-8',
