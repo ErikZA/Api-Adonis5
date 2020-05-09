@@ -1,4 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 import User from 'App/Models/User'
 
@@ -9,14 +10,21 @@ export default class UsersController {
   }
 
   public async store ({ request }: HttpContextContract) {
-    const data = request.only([
-      'name',
-      'lastName',
-      'email',
-      'password',
-      'rememberMeToken',
-    ])
-    console.log(data)
+    const validationSchema = schema.create({
+      name: schema.string(),
+      lastName: schema.string(),
+      email: schema.string({ trim: true }, [
+        rules.email(),
+        rules.unique({ table: 'users', column: 'email' }),
+      ]),
+      password: schema.string({ trim: true }),
+      rememberMeToken: schema.string(),
+    })
+
+    const data = await request.validate({
+      schema: validationSchema,
+    })
+
     const user = await User.create(data)
     return user
   }
@@ -28,13 +36,22 @@ export default class UsersController {
 
   public async update ({ params, request }: HttpContextContract) {
     const user = await User.findOrFail(params.id)
-    const data = request.only([
-      'name',
-      'lastName',
-      'email',
-      'password',
-      'rememberMeToken',
-    ])
+
+    const validationSchema = schema.create({
+      name: schema.string(),
+      lastName: schema.string(),
+      email: schema.string({ trim: true }, [
+        rules.email(),
+        rules.unique({ table: 'users', column: 'email' }),
+      ]),
+      password: schema.string({ trim: true }, [rules.confirmed()]),
+      rememberMeToken: schema.string(),
+    })
+
+    const data = await request.validate({
+      schema: validationSchema,
+    })
+
     user.merge(data)
     await user.save()
     return user

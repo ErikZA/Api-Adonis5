@@ -1,11 +1,10 @@
+import User from 'App/Models/User'
 /**
  * Contract source: https://git.io/JvyKD
  *
  * Feel free to let us know via PR, if you find something broken in this
  * file.
  */
-
-import User from 'App/Models/User'
 
 declare module '@ioc:Adonis/Addons/Auth' {
   /*
@@ -34,9 +33,9 @@ declare module '@ioc:Adonis/Addons/Auth' {
     |
     */
     user: {
-      implementation: LucidProviderContract<typeof User>,
-      config: LucidProviderConfig<typeof User>,
-    },
+      implementation: LucidProviderContract<typeof User>;
+      config: LucidProviderConfig<typeof User>;
+    };
   }
 
   /*
@@ -66,8 +65,8 @@ declare module '@ioc:Adonis/Addons/Auth' {
     |
     */
     web: {
-      implementation: SessionGuardContract<'user', 'web'>,
-      config: SessionGuardConfig<'user'>,
-    },
+      implementation: SessionGuardContract<'user', 'web'>;
+      config: SessionGuardConfig<'user'>;
+    };
   }
 }
